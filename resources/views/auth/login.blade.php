@@ -14,7 +14,7 @@
 
 	<section style="background-image:url({{ Storage::url('site/wall.jpg')}});background-position: center;background-repeat: no-repeat;background-size: cover;"  class="blog-area section">
 		<div class="container">
-            <h2 style="color:white;text-align:center;margin-bottom:30px;">Log In</h2>
+            <h2 style="color:white;text-align:center;margin-bottom:30px;"><b>Log In</b></h2>
 			<div class="row">
 				<div class="col-lg-2 col-md-0"></div>
 				<div class=" col-lg-8 col-md-12">
