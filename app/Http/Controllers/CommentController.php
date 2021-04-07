@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace iBlog\Http\Controllers;
 use Auth;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Comment;
+use iBlog\Comment;
 
 use Illuminate\Http\Request;
 

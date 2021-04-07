@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace iBlog\Http\Controllers\Admin;
 
-use App\Category;
-use App\Subscriber;
-use App\Notification;
+use iBlog\Category;
+use iBlog\Subscriber;
+use iBlog\Notifications\AuthorPostApproved;
+use iBlog\Notifications\NewPostNotify;
 use Carbon\Carbon;
-use App\Post;
-use App\Tag;
+use iBlog\Post;
+use iBlog\Tag;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use iBlog\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Auth;
@@ -96,13 +98,13 @@ class PostController extends Controller
         $subscribers = Subscriber::all();
         foreach ($subscribers as $subscriber)
         {
-            //Notification::route('mail', $subscriber->email)
-            //->notify(new NewPostNotify($post));
+            Notification::route('mail', $subscriber->email)
+            ->notify(new NewPostNotify($post));
             // Adding Notifications 
-            $notif = new Notification;
-            $notif->user_id = $subscriber->user_id;
-            $notif->message = "A new post titled '" . $post->title . "' has been published";
-            $notif->save();
+            //$notif = new Notification;
+            //$notif->user_id = $subscriber->user_id;
+           // $notif->message = "A new post titled '" . $post->title . "' has been published";
+            //$notif->save();
         }
 
         Toastr::success('Post Successfully Saved:)','Success');
@@ -113,7 +115,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \iBlog\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -124,7 +126,7 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \iBlog\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
@@ -138,7 +140,7 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
+     * @param  \iBlog\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
@@ -212,21 +214,21 @@ class PostController extends Controller
            $post->save();
 
            // Adding Notifications 
-            $notification = new Notification;
-            $notification->user_id = $post->user_id;
-            $notification->message = "Your post titled '" . $post->title . "' has been approved";
-            $notification->save();
-           //$post->user->notify(new AuthorPostApproved($post));
+            //$notification = new Notification;
+            //$notification->user_id = $post->user_id;
+            //$notification->message = "Your post titled '" . $post->title . "' has been approved";
+           // $notification->save();
+           $post->user->notify(new AuthorPostApproved($post));
            $subscribers = Subscriber::all();
             foreach ($subscribers as $subscriber)
             {
-                //Notification::route('mail', $subscriber->email)
-                //->notify(new NewPostNotify($post));
+                Notification::route('mail', $subscriber->email)
+                ->notify(new NewPostNotify($post));
                 // Adding Notifications 
-                $notif = new Notification;
-                $notif->user_id = $subscriber->user_id;
-                $notif->message = "A new post titled '" . $post->title . "' has been published";
-                $notif->save();
+                //$notif = new Notification;
+               // $notif->user_id = $subscriber->user_id;
+                //$notif->message = "A new post titled '" . $post->title . "' has been published";
+                //$notif->save();
             }
 
            Toastr::success('Post Successfully Approved :)','Success');
@@ -240,7 +242,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param  \iBlog\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)

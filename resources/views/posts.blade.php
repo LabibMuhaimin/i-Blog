@@ -6,6 +6,7 @@
 <link href="{{ asset('assets/frontend/css/category/styles.css')}}" rel="stylesheet">
 
 	<link href="{{ asset('assets/frontend/css/category/responsive.css')}}" rel="stylesheet">
+	<link href="{{ asset('assets/frontend/css/home/iblog.css')}}" rel="stylesheet">
 <style>
 .favorite_posts{
 			color:red;
@@ -25,10 +26,9 @@
             @foreach ($posts as $post)
               <div class="col-lg-4 col-md-6">
 					<div class="card h-100">
-						<div class="single-post post-style-1">
-							<div class="blog-image"><img src="{{ Storage::disk('public')->url('post/'.$post->image)}}" alt="{{$post->title}}"></div>
-							<a class="avatar" href="{{route('author.profile', $post->user->username)}}"><img src="{{ Storage::disk('public')
-							->url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
+						<div class="single-post post-style-1" style="border-radius:5%">
+							<div  class="blog-image"><img  src="{{ Storage::url('post/'.$post->image)}}" alt="{{$post->title}}"></div>
+							<a class="avatar" href="{{route('author.profile', $post->user->username)}}"><img src="{{ Storage::url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
 
 							<div class="blog-info">
 

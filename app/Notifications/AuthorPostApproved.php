@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Notifications;
+namespace iBlog\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -17,7 +17,7 @@ class AuthorPostApproved extends Notification implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($post)
     {
         $this->post = $post;
     }

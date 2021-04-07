@@ -5,12 +5,13 @@
 @push('css')
     <!-- JQuery DataTable Css -->
     <link href="{{ asset('assets/backend/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet">
+    
 @endpush
 
 @section('content')
-    <div class="container-fluid">
+    <div style="margin-top:80px;margin-left:300px;" class="container-fluid">
             <div class="block-header">
-                <a class="btn bt-primary waves-effect" href="{{ route('admin.tag.create')}}">
+                <a class="btn bt-primary waves-effect" href="{{ route('admin.tag.create')}}" style="background-color:#0275d8;color:white;margin-top:5px;">
                     <i class="material-icons">add</i>
                     <span>Add New Tag</span>
                 

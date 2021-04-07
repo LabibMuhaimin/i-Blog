@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace iBlog;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,6 +9,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -29,19 +30,19 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo('App\Role');
+        return $this->belongsTo('iBlog\Role');
     }
     public function posts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('iBlog\Post');
     }
     public function favorite_posts()
     {
-        return $this->belongsToMany('App\Post')->withTimestamps();
+        return $this->belongsToMany('iBlog\Post')->withTimestamps();
     }
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('iBlog\Comment');
     }
 
     public function scopeAuthors($query)

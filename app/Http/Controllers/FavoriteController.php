@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace iBlog\Http\Controllers;
 use Brian2694\Toastr\Facades\Toastr;
 
 use Illuminate\Http\Request;

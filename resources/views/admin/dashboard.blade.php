@@ -2,17 +2,17 @@
 
 @section('title', 'Dashboard')
 @push('css')
-
+<link href="{{ asset('assets/frontend/css/home/iblog.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
-    <div class="container-fluid">
-            <div class="block-header">
+    <div style="margin-top:80px;margin-left:300px;" class="container-fluid">
+            <div style="margin-top:5px;margin-left:10px;" class="block-header">
                 <h2>DASHBOARD</h2>
             </div>
 
             <!-- Widgets -->
-            <div class="row clearfix">
+            <div style="margin-left:10px;"  class="row clearfix">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-green hover-expand-effect">
                         <div class="icon">
@@ -60,7 +60,7 @@
             </div>
             <!-- #END# Widgets -->
             <!-- Widgets -->
-            <div class="row clearfix">
+            <div style="margin-left:10px;" class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
                     <div class="info-box bg-pink hover-zoom-effect">
                         <div class="icon">
@@ -91,15 +91,15 @@
                     </div>
                 </div>
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
-                        <div class="card">
+                        <div class="card" style="background-color:transparent;">
                         <div class="header">
-                            <h2>TOP 5 POPULAR POSTS</h2>
+                            <h2 style="color:white;">TOP 5 POPULAR POSTS</h2>
                             
                         </div>
-                        <div class="body">
+                        <div class="body" style="background-color:#151e44">
                             <div class="table-responsive">
-                                <table class="table table-hover dashboard-task-infos">
-                                    <thead>
+                                <table class="table  dashboard-task-infos">
+                                    <thead style="color:white;">
                                         <tr>
                                             <th>Rank List</th>
                                             <th>Title</th>
@@ -111,8 +111,9 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="color:white;">
                                         @foreach($popular_posts as $key=>$post)
+                                        @if($post->is_approved == true)
                                         <tr>
                                             
                                             <td>{{ $key + 1}}</td>
@@ -122,23 +123,16 @@
                                             <td>{{ $post->favorite_to_users_count}}</td>
                                             <td>{{ $post->comments_count}}</td>
                                             <td>
-                                                @if($post->status == true)
+                                                
                                                     <span class= "label bg-green">
                                                     Published</span>
-
-                                                @else
-                                                    <span class= "label bg-red">
-                                                    Pending</span>
-                                                @endif
-                                            
-                                            
                                             </td>
                                             <td>
                                                 <a class =" btn btn-sm btn-primary waves-effect" target="blank" href="{{route('post.details',
                                                 $post->slug)}}">View</a>
                                             
                                             </td>
-
+                                            @endif
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -156,15 +150,15 @@
             <div class="row clearfix">
                 <!-- Task Info -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="card">
+                    <div class="card" style="background-color:transparent;">
                         <div class="header">
-                            <h2>TOP 10 ACTIVE AUTHORS</h2>
+                            <h2 style="color:white;">TOP 10 ACTIVE AUTHORS</h2>
                             
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-hover dashboard-task-infos">
-                                    <thead>
+                                <table class="table dashboard-task-infos">
+                                    <thead style="color:white;">
                                         <tr>
                                             <th>Rank List</th>
                                             <th>Name</th>
@@ -173,7 +167,7 @@
                                             <th>Favorite</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="color:white;">
                                         @foreach($active_authors as $key=>$author)
                                             <tr>
                                                 <td>{{ $key + 1}}</td>

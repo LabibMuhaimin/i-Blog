@@ -12,6 +12,8 @@
 */
 
 Route::get('/','HomeController@index')->name('home');
+Route::get('/about','HomeController@aboutpage')->name('about');
+Route::get('/subscriber_page','HomeController@checkout')->name('subscriber_page');
 Route::get('posts', 'PostController@index')->name('post.index');
 
 Route::get('post/{slug}', 'PostController@details')->name('post.details');
@@ -22,14 +24,17 @@ Route::get('profile/{username}','AuthorController@profile')->name('author.profil
 
 
 Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store');
+Route::post('subscriber_page','CheckoutController@afterpayment')->name('subscriber_page.checkout');
 Route::get('/serach', 'SearchController@search')->name('search');
 
 Auth::routes();
+
 
 Route::group(['middleware'=>['auth']], function (){
    Route::post('favorite/{post}/add','FavoriteController@add')->name('post.favorite');
    Route::post('comment/{post}', 'CommentController@store')->name('comment.store');
    
+
 
 });
 
@@ -85,8 +90,13 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
  });
 
  View::composer('layouts.frontend.partial.footer', function ($view){
-   $category = App\Category::all();
+   $category = iBlog\Category::all();
    $view->with('categories', $category);
+ });
+
+ View::composer('layouts.frontend.partial.footer', function ($view){
+   $tag = iBlog\Tag::all();
+   $view->with('tags', $tag);
  });
 
 Route::get('/author/notifications','NotifController@index')->name('author.notifications');

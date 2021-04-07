@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
+    <div style="margin-top:80px;margin-left:300px;" class="container-fluid">
             
             
             <!-- Exportable Table -->

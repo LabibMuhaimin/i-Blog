@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
+    <div style="margin-top:90px;margin-left:300px;" class="container-fluid">
             <div class="block-header">
                 <a class="btn bt-primary waves-effect" href="{{ route('author.post.create')}}">
                     <i class="material-icons">add</i>

@@ -9,7 +9,7 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
+    <div style="margin-top:90px;margin-left:300px;" class="container-fluid">
             <!-- Vertical Layout | With Floating Label -->
             <form action="{{ route('admin.post.update', $post->id) }}" method="POST" 
                             enctype="multipart/form-data">

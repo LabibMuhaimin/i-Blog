@@ -10,7 +10,8 @@
         "fideloper/proxy": "~4.0",
         "intervention/image": "^2.5",
         "laravel/framework": "5.6.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "stripe/stripe-php": "^7.76"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -26,7 +27,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "iBlog\\": "app/"
         }
     },
     "autoload-dev": {

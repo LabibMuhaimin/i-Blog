@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace iBlog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Comment;
+use iBlog\Http\Controllers\Controller;
+use iBlog\Comment;
 use Brian2694\Toastr\Facades\Toastr;
 
 class CommentController extends Controller

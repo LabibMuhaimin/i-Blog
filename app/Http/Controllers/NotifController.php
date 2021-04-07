@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace iBlog\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Notification;
+use iBlog\Notification;
 
 class NotifController extends Controller
 {

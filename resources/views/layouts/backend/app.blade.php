@@ -39,7 +39,8 @@
 
    
 </head>
-<body class="theme-blue">
+
+<body class="theme-black">
     
 <!-- Page Loader -->
     <div class="page-loader-wrapper">
@@ -81,7 +82,7 @@
         <!-- #END# Left Sidebar -->
     </section>
 
-    <section class="content">
+    <section class="post_css" class="content">
         @yield('content')
     </section>
 

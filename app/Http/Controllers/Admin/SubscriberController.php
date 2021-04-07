@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace iBlog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Subscriber;
+use iBlog\Http\Controllers\Controller;
+use iBlog\Subscriber;
 use Brian2694\Toastr\Facades\Toastr;
 
 class SubscriberController extends Controller

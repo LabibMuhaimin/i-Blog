@@ -28,6 +28,7 @@
     @stack('css')
    
 </head>
+
 <body>
     
     @include('layouts.frontend.partial.header')

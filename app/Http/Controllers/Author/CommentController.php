@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Author;
+namespace iBlog\Http\Controllers\Author;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Comment;
+use iBlog\Http\Controllers\Controller;
+use iBlog\Comment;
 use Brian2694\Toastr\Facades\Toastr;
 use Auth;
 

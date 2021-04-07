@@ -9,11 +9,15 @@
 <link href="{{ asset('assets/frontend/css/single-post/styles.css')}}" rel="stylesheet">
 
 	<link href="{{ asset('assets/frontend/css/single-post/responsive.css')}}" rel="stylesheet">
+	<link href="{{ asset('assets/frontend/css/home/iblog.css')}}" rel="stylesheet">
     <style>
     .header-bg{
-        height: 400px;
+        height: 100%;
         width: 100%;
-        background-image: url({{ Storage::disk('public')->url('post/'.$post->image)}});
+        background-image:url({{Storage::url('post/'.$post->image)}});
+		background-position:center;
+	    background-repeat:no-repeat;
+	    background-size:100% 100%;
     }
 		.favorite_posts{
 			color:red;
@@ -22,7 +26,7 @@
 @endpush
 
 @section('content')
-<div class="header-bg">
+<div class="header-bg">							
 </div><!-- slider -->
 
 	<section class="post-area section">
@@ -39,8 +43,7 @@
 							<div class="post-info">
 
 								<div class="left-area">
-									<a class="avatar" href="{{ route('author.profile', $post->user->username)}}"><img src="{{ Storage::disk('public')
-                                    ->url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
+									<a class="avatar" href="{{ route('author.profile', $post->user->username)}}"><img src="{{ Storage::url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
 								</div>
 
 								<div class="middle-area">
@@ -50,7 +53,7 @@
 
 							</div><!-- post-info -->
 
-							<h3 class="title"><a href="#"><b>{{ $post->title}}</b></a></h3>
+							<h3 class="title"><b>{{ $post->title}}</b></h3>
 
 							<div class="para">
                                 {!! html_entity_decode($post->body)!!}
@@ -74,7 +77,7 @@
 											closeButton:true,
 											progressBar:true,
 
-											})"><i class="ion-heart"></i>{{ $post->favorite_to_users->count()}}</a>
+											})"><i class="ion-thumbs-up"></i>{{ $post->favorite_to_users->count()}}</a>
 										
 										@else
 											<a href="javascript:void(0);" 
@@ -147,13 +150,12 @@
             @foreach ($randomposts as $randompost)
              <div class="col-lg-4 col-md-6">
 					<div class="card h-100">
-						<div class="single-post post-style-1">
+						<div class="single-post post-style-1" style="border-radius:5%">
 
-							<div class="blog-image"><img src="{{ Storage::disk('public')->url('post/'.$randompost->image)}}" 
+							<div class="blog-image" style="height:auto;width:auto;"><img src="{{ Storage::url('post/'.$randompost->image)}}" 
                             alt="{{$randompost->title}}"></div>
 
-							<a class="avatar" href="{{ route('author.profile', $post->user->username)}}"><img src="{{ Storage::disk('public')
-							->url('profile/'.$randompost->user->image)}}" alt="Profile Image"></a>
+							<a class="avatar" href="{{ route('author.profile', $post->user->username)}}"><img src="{{ Storage::url('profile/'.$randompost->user->image)}}" alt="Profile Image"></a>
 
 							<div class="blog-info">
 
@@ -225,7 +227,7 @@
 											placeholder="Enter your comment" aria-required="true" aria-invalid="false"></textarea >
 									</div><!-- col-sm-12 -->
 									<div class="col-sm-12">
-										<button class="submit-btn" type="submit" id="form-submit"><b>POST COMMENT</b></button>
+										<button class="submit-btn" type="submit" id="form-submit"><b> COMMENT</b></button>
 									</div><!-- col-sm-12 -->
 
 								</div><!-- row -->
@@ -243,8 +245,7 @@
 							<div class="post-info">
 
 								<div class="left-area">
-									<a class="avatar" href="{{ route('author.profile', $post->user->username)}}"><img src="{{ Storage::disk('public')
-                                    ->url('profile/'.$comment->user->image)}}" alt="Profile Image"></a>
+									<a class="avatar" href="{{ route('author.profile', $post->user->username)}}"><img src="{{ Storage::url('profile/'.$comment->user->image)}}" alt="Profile Image"></a>
 								</div>
 
 								<div class="middle-area">

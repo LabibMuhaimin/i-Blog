@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Author;
+namespace iBlog\Http\Controllers\Author;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use iBlog\Http\Controllers\Controller;
 use Auth;
-use App\Post;
-use App\User;
+use iBlog\Post;
+use iBlog\User;
 
 class LikeController extends Controller
 {

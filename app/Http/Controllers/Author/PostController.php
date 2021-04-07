@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Author;
+namespace iBlog\Http\Controllers\Author;
 
-use App\Post;
-use App\Category;
-use App\User;
+use iBlog\Post;
+use iBlog\Category;
+use iBlog\User;
 use Carbon\Carbon;
-use App\Tag;
-use App\Notification;
+use iBlog\Tag;
+use iBlog\Notifications\NewAuthorPost;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use iBlog\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -93,15 +94,17 @@ class PostController extends Controller
         $post->tags()->attach($request->tags);
         
         $users = User::where('role_id', '1')->get();
+        Notification::send($users,new NewAuthorPost($post));
         $postBy = User::where('id',$post->user_id)->first();
-        foreach($users as $user)
-        {
-            $notif = new Notification;
-            $notif->user_id = $user->id;
-            $notif->message = $postBy->name . " has a new pending post";
-            $notif->save();
-        }
-
+        /** 
+       * foreach($users as $user)
+       * {
+       *     $notif = new Notification;
+      *      $notif->user_id = $user->id;
+      *      $notif->message = $postBy->name . " has a new pending post";
+       *     $notif->save();
+       * }
+        */
 
         Toastr::success('Post Successfully Saved:)','Success');
         return redirect()->route('author.post.index');
@@ -110,7 +113,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\post  $post
+     * @param  \iBlog\post  $post
      * @return \Illuminate\Http\Response
      */
     public function show(post $post)
@@ -121,7 +124,7 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\post  $post
+     * @param  \iBlog\post  $post
      * @return \Illuminate\Http\Response
      */
     public function edit(post $post)
@@ -140,7 +143,7 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\post  $post
+     * @param  \iBlog\post  $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, post $post)
@@ -209,7 +212,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\post  $post
+     * @param  \iBlog\post  $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(post $post)

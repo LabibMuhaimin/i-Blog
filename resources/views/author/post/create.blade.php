@@ -9,9 +9,9 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
+    <div style="margin-top:90px;margin-left:300px;" class="container-fluid">
             <!-- Vertical Layout | With Floating Label -->
-            <form action="{{ route('author.post.store') }}" method="POST" 
+            <form action="{{ route('admin.post.store') }}" method="POST" 
                             enctype="multipart/form-data">
                             @csrf
             <div class="row clearfix">
@@ -33,8 +33,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                <label for="image">Featured Image</label>
-                                    <input type="file" name="image">
+                                    
                                 </div>
                                 <div class="form-group">
                                 <input type="checkbox" id="publish" class="filled-in" name="status"
@@ -87,7 +86,7 @@
                                
 
                                 <a class="btn btn-danger m-t-15 
-                                waves-effect" href="{{ route('author.post.index')}}">BACK</a>
+                                waves-effect" href="{{ route('admin.post.index')}}">BACK</a>
 
                                 <button type="submit" class="btn btn-primary m-t-15 
                                 waves-effect">SUBMIT</button>
@@ -108,11 +107,19 @@
                         </div>
                         <div class="body">
                             <textarea id="tinymce" name="body"></textarea>
-                            
+                             <div class="form-group">
+                    <div class="header">
+                 <h2 for="image">Featured Image</h2>
+             </div>
+                  <input name=image type=file id="upload" onchange="">                  
+                </div>
                         </div>
                     </div>
                 </div>
                 </div>
+              <!--  <div class="card" style="height:100px;">
+               
+            </div>-->
             </form>
         </div>
 @endsection
@@ -123,7 +130,7 @@
     <!-- TinyMCE -->
     <script src="{{ asset('assets/backend/plugins/tinymce/tinymce.js')}}"></script>
     <script>
-    $(function () {
+    /*$(function () {
         //TinyMCE
     tinymce.init({
         selector: "textarea#tinymce",
@@ -141,7 +148,48 @@
     });
     tinymce.suffix = ".min";
     tinyMCE.baseURL = '{{ asset('assets/backend/plugins/tinymce')}}';
-});
+});*/
+ $(document).ready(function() {
+        tinymce.init({
+          selector: "textarea",
+          theme: "modern",
+          height: 300,
+          paste_data_images: true,
+          plugins: [
+            "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+            "searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern"
+          ],
+          toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+          toolbar2: "print preview media | forecolor backcolor emoticons",
+          image_advtab: true,
+          file_picker_callback: function(callback, value, meta) {
+            if (meta.filetype == 'image') {
+              $('#upload').trigger('click');
+              $('#upload').on('change', function() {
+                var file = this.files[0];
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                  callback(e.target.result, {
+                    alt: ''
+                  });
+                };
+                reader.readAsDataURL(file);
+              });
+            }
+          },
+          templates: [{
+            title: 'Test template 1',
+            content: 'Test 1'
+          }, {
+            title: 'Test template 2',
+            content: 'Test 2'
+          }]
+        });
+        tinymce.suffix = ".min";
+    tinyMCE.baseURL = '{{ asset('assets/backend/plugins/tinymce')}}';
+      });
     </script>
 
 @endpush

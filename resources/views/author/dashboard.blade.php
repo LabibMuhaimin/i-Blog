@@ -2,12 +2,12 @@
 
 @section('title', 'Dashboard')
 @push('css')
-
+<link href="{{ asset('assets/frontend/css/home/iblog.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
-    <div class="container-fluid">
-            <div class="block-header">
+    <div style="margin-top:80px;margin-left:300px;" class="container-fluid">
+            <div   class="block-header">
                 <h2>DASHBOARD</h2>
             </div>
 
@@ -62,15 +62,15 @@
             <!-- #END# Widgets -->
                 <!-- Task Info -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="card">
+                    <div class="card" style="background-color:transparent;">
                         <div class="header">
-                            <h2>TOP 5 POPULAR POSTS</h2>
+                            <h2 style="color:white;">TOP 5 POPULAR POSTS</h2>
                             
                         </div>
-                        <div class="body">
+                        <div class="body" style="background-color:#151e44">
                             <div class="table-responsive">
                                 <table class="table table-hover dashboard-task-infos">
-                                    <thead>
+                                    <thead style="color:white;">
                                         <tr>
                                             <th>Rank List</th>
                                             <th>Title</th>
@@ -79,7 +79,7 @@
                                             <th>Status</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="color:white;">
                                         @foreach($popular_posts as $key=>$post)
                                         <tr>
                                             

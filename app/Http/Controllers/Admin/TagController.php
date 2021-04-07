@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace iBlog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Http\Controllers\Controller;
-use App\Tag;
+use iBlog\Http\Controllers\Controller;
+use iBlog\Tag;
 
 class TagController extends Controller
 {

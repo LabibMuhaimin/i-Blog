@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-<div class ="container-fluid">
+<div style="margin-top:80px;margin-left:300px;" class ="container-fluid">
 <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -13,7 +13,7 @@
                             <h2>
                                 SETTINGS
                             </h2>
-                            <ul class="header-dropdown m-r--5">
+                           <!-- <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
@@ -24,7 +24,7 @@
                                         <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
                                     </ul>
                                 </li>
-                            </ul>
+                            </ul>-->
                         </div>
                         <div class="body">
                             <!-- Nav tabs -->

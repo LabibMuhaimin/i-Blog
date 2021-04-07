@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
+    <div style="margin-top:90px;margin-left:300px;" class="container-fluid">
             <!-- Vertical Layout | With Floating Label -->
             <a href="{{ route('admin.post.index')}}" class="btn btn-danger waves-effect">BACK</a>
             @if($post->is_approved == false)
@@ -89,7 +89,7 @@
                             
                         </div>
                         <div class="body">
-                        <img class="img-responsive thumbnail" src="{{ Storage::disk('public')->url('post/'.$post->image)}}" 
+                        <img class="img-responsive thumbnail" src="{{Storage::url('post/'.$post->image)}}" 
                         
                         alt="">
 

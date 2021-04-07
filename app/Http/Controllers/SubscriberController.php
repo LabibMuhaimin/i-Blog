@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace iBlog\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Subscriber;
+use iBlog\Subscriber;
 use Brian2694\Toastr\Facades\Toastr;
 
 class SubscriberController extends Controller
@@ -16,7 +16,7 @@ class SubscriberController extends Controller
         $subscriber = new Subscriber();
         $subscriber->email = $request->email;
         $subscriber->save();
-        Toastr::success('You Successfully added to our subscriber list :)','Success');
+        Toastr::success('You have been Successfully added to our subscriber list :)','Success');
        return redirect()->back();
 
     }

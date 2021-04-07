@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
+    <div style="margin-top:80px;margin-left:300px;" class="container-fluid">
             
             
             <!-- Exportable Table -->
@@ -45,8 +45,7 @@
                                                     <div class="media">
                                                         <div class="media-left">
                                                         <a href ="{{ route('author.profile', $post->user->username)}}">
-                                                            <img class="media-object" src="{{ Storage::disk
-                                                            ('public')->url('profile/'.$comment->user->image)}}"
+                                                            <img class="media-object" src="{{ Storage::url('profile/'.$comment->user->image)}}"
                                                             width="64" height ="64">
                                                         </a>
 
@@ -69,8 +68,8 @@
                                                         <div class="media-left">
                                                         <a target="blank" href="{{ route('post.details',
                                                             $comment->post->slug)}}">
-                                                        <img class="media-object" src="{{ Storage::disk
-                                                        ('public')->url('post/'.$comment->post->image)}}"
+                                                        <img class="media-object" src="{{ Storage::
+                                                        url('post/'.$comment->post->image)}}"
                                                         width="64" height ="64">
                                                         </a>
 

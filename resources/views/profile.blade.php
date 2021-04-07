@@ -7,6 +7,7 @@
 <link href="{{ asset('assets/frontend/css/profile/styles.css')}}" rel="stylesheet">
 
 	<link href="{{ asset('assets/frontend/css/profile/responsive.css')}}" rel="stylesheet">
+	<link href="{{ asset('assets/frontend/css/home/iblog.css')}}" rel="stylesheet">
 <style>
 .favorite_posts{
 			color:red;
@@ -31,13 +32,13 @@
 
 				<div class="col-md-6 col-sm-12">
 					<div class="card h-100">
-						<div class="single-post post-style-1">
+						<div class="single-post post-style-1" style="border-radius:5%;">
 
-							<div class="blog-image"><img src="{{ Storage::disk('public')
-							->url('post/'.$post->image)}}" alt="{{$post->title}}"></div>
+							<div class="blog-image"><img src="{{ Storage::
+							url('post/'.$post->image)}}" alt="{{$post->title}}"></div>
 
-							<a class="avatar" href="{{ route('author.profile', $post->user->username)}}"><img src="{{ Storage::disk('public')
-							->url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
+							<a class="avatar" href="{{ route('author.profile', $post->user->username)}}"><img src="{{ Storage::
+							url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
 
 							<div class="blog-info">
 
@@ -106,10 +107,14 @@
 
 						<div class="about-area">
 							<h4 class="title"><b>ABOUT AUTHOR</b></h4>
-                            <p>{{ $author->name}}</p><br>
 
+							<!--<a class="avatar" href="{{ route('author.profile', $post->user->username)}}"><img src="{{ Storage::disk('public')
+                                    ->url('profile/'.$post->user->image)}}" alt="Profile Image"></a>-->
+									 <img class="img-thumbnail" src="{{  Storage::url('profile/'.$author->image) }}" alt="Profile Photo" style="border-radius:10%; width:140px;height:140px;">
+                            <h4 style="margin-top:10px;">{{ $author->name}}</h4><br>
+							
 							<p>{{ $author->about}}</p><br>
-                            <strong>Author Since : {{ $author->created_at->toDateString()}}</strong><br>
+                            <strong>Joined : {{ $author->created_at->diffForHumans()}}</strong><br>
                             <strong>Total Post: {{ $author->posts->count()}}</strong>
 						</div>
 

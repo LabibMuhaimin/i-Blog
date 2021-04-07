@@ -1,6 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.frontend.app')
+
+@section('title','Reset')
+
+@push('css')
+    <link href="{{ asset('assets/frontend/css/auth/styles.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('assets/frontend/css/home/responsive.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/home/iblog.css')}}" rel="stylesheet">
+@endpush
 
 @section('content')
+<!--
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -61,5 +71,8 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 @endsection
+@push('js')
+
+@endpush

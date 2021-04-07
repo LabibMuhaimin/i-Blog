@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Post;
+namespace iBlog\Http\Controllers;
+use iBlog\Post;
 
 use Illuminate\Http\Request;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace iBlog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use iBlog\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
-use App\User;
+use iBlog\User;
 
 class AdminController extends Controller
 {

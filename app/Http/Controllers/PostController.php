@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace iBlog\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use iBlog\Post;
 use Session;
-use App\Category;
-use App\Tag;
+use iBlog\Category;
+use iBlog\Tag;
 
 class PostController extends Controller
 {

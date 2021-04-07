@@ -9,16 +9,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title') - {{ config('app.name', 'Laravel') }}</title>
-
+    <link rel="icon" src="{{ Storage::url('site/i.png') }}" />
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('assets/backend/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/backend/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">

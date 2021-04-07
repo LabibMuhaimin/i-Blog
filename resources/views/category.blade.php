@@ -6,15 +6,21 @@
 <link href="{{ asset('assets/frontend/css/category/styles.css')}}" rel="stylesheet">
 
 	<link href="{{ asset('assets/frontend/css/category/responsive.css')}}" rel="stylesheet">
+	<link href="{{ asset('assets/frontend/css/home/iblog.css')}}" rel="stylesheet">
+	
 <style>
 	.slider{
 		height: 400px;
 		width: 100%;
-		background-image: url({{ Storage::disk('public')->url('category/'.$category->image)}});
+		background-image: url({{ Storage::url('category/'.$category->image)}});
 		background-size: cover;
 	}
 .favorite_posts{
 			color:red;
+		}
+		.cat_head{
+			margin-bottom:25px;
+			color:#181d30;
 		}
 	</style>
 @endpush
@@ -27,18 +33,18 @@
 
 	<section class="blog-area section">
 		<div class="container">
-
+		<div class="cat_head"><h2> There are {{$category->posts->count()}} posts related to {{$category->name}}</h2></div>
 			<div class="row">
 			@if($posts->count()>0)
             	@foreach ($posts as $post)
+					
               <div class="col-lg-4 col-md-6">
 					<div class="card h-100">
-						<div class="single-post post-style-1">
+						<div class="single-post post-style-1" style="border-radius:5%">
 
-							<div class="blog-image"><img src="{{ Storage::disk('public')->url('post/'.$post->image)}}" alt="{{$post->title}}"></div>
+							<div class="blog-image"><img src="{{ Storage::url('post/'.$post->image)}}" alt="{{$post->title}}"></div>
 
-							<a class="avatar" href="{{route('author.profile', $post->user->username)}}"><img src="{{ Storage::disk('public')
-							->url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
+							<a class="avatar" href="{{route('author.profile', $post->user->username)}}"><img src="{{ Storage::url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
 
 							<div class="blog-info">
 

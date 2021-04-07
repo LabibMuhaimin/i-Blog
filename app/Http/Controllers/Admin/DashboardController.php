@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace iBlog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Post;
-use App\User;
+use iBlog\Http\Controllers\Controller;
+use iBlog\Post;
+use iBlog\User;
 use Carbon\Carbon;
-use App\Category;
+use iBlog\Category;
 
 class DashboardController extends Controller
 {

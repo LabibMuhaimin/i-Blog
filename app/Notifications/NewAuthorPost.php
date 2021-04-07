@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Notifications;
+namespace iBlog\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -42,9 +42,9 @@ class NewAuthorPost extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting('Hello, Admin')
+                    ->greeting('Hello, Admin!')
                     ->subject('New Post Approval Needed')
-                    ->line('New Post By'.$this->post->user->name . 'Need To Approve.' )
+                    ->line('New Post By '.$this->post->user->name . 'Need To Approve.' )
                     ->line('To Approve the post click view button.')
                     ->line('Post Title :'. $this->post->title)
                     ->action('view', url(route('admin.post.show',$this->post->id)))
